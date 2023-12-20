@@ -5,11 +5,10 @@ $(document).ready(function(){
         event.preventDefault(); // Evitar la recarga de la página
         $.ajax({
             type: "POST",
-            url: "http://localhost:4444/rest/save", // Ruta para insertar un estudiante
+            url: "http://localhost:4444/rest/save/"+$('#CEDULA').val(), // Ruta para insertar un estudiante
             dataType: "json",
             contentType: 'application/json',
             data: JSON.stringify({
-                "cedula": $('#CEDULA').val(),
                 "nombre": $('#NOMBRE').val(),
                 "apellido": $('#APELLIDO').val(),
                 "direccion": $('#DIR').val(),
@@ -39,8 +38,6 @@ $(document).ready(function(){
             }
         });
     });
-
-
 
     $("#tblUsers").on('click', '.btnEdit', function(){
         var currentRow = $(this).closest("tr");

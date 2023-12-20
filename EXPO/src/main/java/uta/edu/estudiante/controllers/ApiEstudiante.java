@@ -31,7 +31,8 @@ public class ApiEstudiante {
     }
 
     @PostMapping("/save/{cedula}")
-    public Estudiante addEstudiante( @RequestBody Estudiante estudiante) {
+    public Estudiante addEstudiante(@PathVariable String cedula, @RequestBody Estudiante estudiante) {
+        estudiante.setCedula(cedula);
         return estudianteRepository.saveAndFlush(estudiante);
     }
 
